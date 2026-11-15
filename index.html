@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#5a9a2e">
+<title>Pump Performance Toolkit — Wafi Energy Pakistan Limited</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<style>
+:root{--g:#77bc43;--gd:#5a9a2e;--gdd:#3f7420;--ink:#2b2f33;--head:#3b4045;--mut:#6b7075;--rule:#dfe3df;--tint:#f1f7ec;--bg:#f5f7f4;--ok:#2e7d4f;--ok2:#8cc866;--amber:#d08a12;--red:#c0392b;--card:#fff}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font:15px/1.5 Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+header.top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:3px solid var(--g);display:flex;align-items:center;gap:12px;padding:8px 16px}
+header.top img{height:38px}
+header.top .t{flex:1;font-weight:700;font-size:13px;letter-spacing:.06em;color:var(--head);text-transform:uppercase;line-height:1.2}
+header.top .t small{display:block;font-weight:500;letter-spacing:0;text-transform:none;color:var(--mut);font-size:12px}
+header.top a.home{font-weight:600;color:var(--gd);text-decoration:none;border:1px solid var(--rule);padding:7px 12px;border-radius:8px;background:#fff;white-space:nowrap}
+main{max-width:980px;margin:0 auto;padding:18px 14px 70px}
+h1{font-size:24px;margin:6px 0 4px;color:var(--head);letter-spacing:-.01em}
+h2{font-size:17px;margin:22px 0 10px;color:var(--head);padding-bottom:6px;border-bottom:2px solid var(--g)}
+h3{font-size:15px;margin:16px 0 6px;color:var(--gd)}
+p{margin:0 0 10px}.mut{color:var(--mut)}.small{font-size:13px}
+.grp{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gd);margin:22px 0 8px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.tile{display:block;background:var(--card);border:1px solid var(--rule);border-top:3px solid var(--g);border-radius:10px;padding:14px 14px 12px;text-decoration:none;color:inherit;min-height:104px}
+.tile:hover,.tile:focus{border-color:var(--gd);box-shadow:0 2px 10px rgba(60,90,30,.12);outline:0}
+.tile b{display:block;color:var(--head);font-size:15.5px;margin-bottom:3px}
+.tile span{color:var(--mut);font-size:13px;line-height:1.35;display:block}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:14px;margin:0 0 12px}
+.form{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px 12px}
+label.f{display:block;font-size:12.5px;font-weight:600;color:var(--head)}
+label.f small{font-weight:400;color:var(--mut)}
+input,select,textarea{width:100%;margin-top:4px;font:inherit;font-size:16px;padding:9px 10px;border:1px solid #c8cec8;border-radius:8px;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--g);border-color:var(--gd)}
+textarea{min-height:70px}
+button,.btn{font:inherit;font-weight:600;border:0;border-radius:8px;padding:10px 16px;background:var(--gd);color:#fff;cursor:pointer;text-decoration:none;display:inline-block}
+button.sec,.btn.sec{background:#fff;color:var(--gd);border:1px solid var(--gd)}
+button.dng{background:#fff;color:var(--red);border:1px solid var(--red)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.out{margin-top:12px;border-radius:10px;padding:12px 14px;background:var(--tint);border-left:4px solid var(--gd)}
+.out.amber{background:#fdf6e3;border-left-color:var(--amber)}.out.red{background:#fdf0ee;border-left-color:var(--red)}.out.grey{background:#f1f3f1;border-left-color:#aab2aa}
+.out .big{font-size:22px;font-weight:700;color:var(--head)}
+.kv{display:grid;grid-template-columns:1fr auto;gap:4px 14px;margin-top:6px}.kv b{text-align:right}
+.pill{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:5px;color:#fff;background:var(--ok);white-space:nowrap}
+.pill.ok2{background:var(--ok2);color:#1f3d0f}.pill.amber{background:var(--amber)}.pill.red{background:var(--red)}.pill.grey{background:#aab2aa}
+.pill.f1{background:#4c8f24}.pill.f2{background:#8cc866;color:#1f3d0f}.pill.f3{background:#d5e8c8;color:#2f4a1c}.pill.f4{background:#e9f1e4;color:#2f4a1c}.pill.f5{background:#eef1ec;color:#3b4045}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--gd);color:#fff;text-align:left;padding:8px 10px;font-size:13px}
+td{padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody tr:nth-child(even) td{background:#f8fbf6}
+tr.lvl td{background:var(--tint)!important;color:var(--gd);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+td ul{margin:0;padding-left:18px}
+.gauge{display:flex;border-radius:6px;overflow:hidden;font-size:12px;font-weight:700;color:#fff;text-align:center;margin-top:10px}
+.gauge div{padding:8px 2px}
+.seg{display:inline-flex;border:1px solid #c8cec8;border-radius:8px;overflow:hidden;background:#fff}
+.seg label{padding:8px 12px;font-size:14px;font-weight:600;cursor:pointer;border-right:1px solid #c8cec8;color:var(--mut)}
+.seg label:last-child{border-right:0}
+.seg input{position:absolute;opacity:0;width:0;height:0;margin:0}
+.seg input:checked+span{color:#fff}
+.seg label:has(input:checked){background:var(--gd);color:#fff}
+.seg label.no:has(input:checked){background:var(--red)}
+.chk{display:flex;gap:10px;align-items:flex-start;padding:10px 4px;border-bottom:1px solid var(--rule)}
+.chk input{width:22px;height:22px;margin:1px 0 0;flex:none;accent-color:var(--gd)}
+.chk .n{flex:none;width:24px;height:24px;border-radius:12px;background:var(--g);color:#fff;font-weight:700;font-size:13px;text-align:center;line-height:24px}
+.chk.dk .n{background:var(--head)}
+.warn{color:var(--red);font-weight:700}
+.row3{display:grid;grid-template-columns:.9fr repeat(3,1fr) auto;gap:6px;align-items:center;margin-bottom:6px}
+.row3 input{margin:0;padding:9px 2px;text-align:center;min-width:0}.row3 b{font-size:13.5px}.row3 .h{font-size:12px;font-weight:700;color:var(--mut);text-align:center}
+.item{border-bottom:1px solid var(--rule);padding:10px 0}
+.item .q{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.item .q b{flex:1 1 220px}.item .q small{display:block;font-weight:400;color:var(--mut)}
+.item input.rm{margin-top:8px;font-size:14px;padding:7px 9px}
+figure{margin:0 0 12px;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:8px}
+figure img{width:100%;display:block;border-radius:6px}figcaption{font-size:12.5px;color:var(--mut);padding-top:6px}
+.view{display:none}.view.on{display:block}
+footer{max-width:980px;margin:0 auto;padding:0 14px 24px;color:var(--mut);font-size:12px}
+.rec{display:flex;gap:8px;align-items:center;justify-content:space-between;border-bottom:1px solid var(--rule);padding:8px 0;flex-wrap:wrap}
+@media print{header.top a.home,.bar,.noprint,footer{display:none!important}body{background:#fff}main{padding:0;max-width:none}.card{border:0;padding:0}.view{display:none!important}.view.on{display:block!important}input,select,textarea{border:0;border-bottom:1px solid #999;border-radius:0;padding:2px 0}}
+</style>
+</head>
+<body>
+<header class="top">
+  <img src="assets/logo.png" alt="Wafi Energy Pakistan Limited">
+  <div class="t">Pump Performance Toolkit<small>Based on the Pump Performance Standard Procedure</small></div>
+  <a class="home" href="#home" id="homeBtn">☰ All tools</a>
+</header>
+<main id="main"></main>
+<footer>Wafi Energy Pakistan Limited · Pump Performance Standard Procedure. Calculators are field aids: limits come from the procedure; always use OEM data for acceptance. Records are stored only in this browser on this device.</footer>
+
+<script>
+"use strict";
+/* ============ limits from the procedure (Section 14) ============ */
+const C = {
+  vib(v){ if(v<=2.8) return {z:"Good",s:"Acceptable",c:""}; if(v<=4.5) return {z:"Operation allowed",s:"Acceptable",c:"ok2"};
+          if(v<=7.1) return {z:"Alert",s:"Plan maintenance",c:"amber"}; return {z:"Trip",s:"Immediate action",c:"red"}; },
+  temp(t){ if(t<=80) return {z:"Normal operating",s:"Acceptable",c:""}; if(t<95) return {z:t<=90?"Alarm limit":"Above alarm limit",s:"Alarm — investigate",c:"amber"};
+           return {z:"Trip limit",s:"Trip — stop and investigate",c:"red"}; },
+  load(p){ if(p>110) return {z:"Overload",s:"> 110% → investigate",c:"red"}; if(p>100) return {z:"Above rated current",s:"Not acceptable (limit ≤ 100% of rated)",c:"red"};
+           if(p>90) return {z:"Above normal range",s:"Acceptable (≤ 100% of rated)",c:"ok2"}; if(p>=70) return {z:"Normal range",s:"Normal (70–90% of rated)",c:""};
+           return {z:"Below normal range",s:"Low current — check for low flow / throttled discharge",c:"amber"}; },
+  flow(p){ return p>=90 ? {s:"Acceptable (≥ 90% of design)",c:""} : {s:"Below 90% of design",c:"amber"}; },
+  press(p){ return Math.abs(p-100)<=10 ? {s:"Acceptable (within ±10% of design)",c:""} : {s:"Outside ±10% of design",c:"amber"}; },
+  bep(p){ return (p>=70&&p<=120) ? {s:"Within preferred range (70–120% of BEP)",c:""} : {s:"Outside 70–120% of BEP — expect vibration and seal problems",c:"amber"}; },
+  head(pd,ps,sg,dz,dv){ return (pd-ps)*10.1972/sg + dz + dv; },
+  vel(q,dmm){ return (q/3600)/(Math.PI*Math.pow(dmm/1000,2)/4); },
+  hyd(q,h,sg){ return q*h*sg*9.80665/3600; },
+  margin(kw){ return kw<22?1.25:(kw<=55?1.15:1.10); },
+  npsha(patm,ptank,pv,sg,hs,hf){ return (patm+ptank-pv)*10.1972/sg + hs - hf; },
+  worst(list){ const o=["","ok2","grey","amber","red"]; return list.reduce((a,b)=>o.indexOf(b)>o.indexOf(a)?b:a,""); }
+};
+if (typeof module!=="undefined") module.exports = C;
+
+/* ============ helpers ============ */
+const $ = (s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc = s=>String(s??"").replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const N = id=>{ const v=parseFloat(($("#"+id)||{}).value); return isFinite(v)?v:NaN; };
+const fx = (v,d=1)=>isFinite(v)?v.toLocaleString("en",{maximumFractionDigits:d,minimumFractionDigits:d}):"—";
+const pill = (t,c="")=>`<span class="pill ${c}">${esc(t)}</span>`;
+const F = (id,label,unit="",attr="")=>`<label class="f">${label}${unit?` <small>(${unit})</small>`:""}<input id="${id}" inputmode="decimal" type="number" step="any" ${attr}></label>`;
+const T = (id,label,attr="")=>`<label class="f">${label}<input id="${id}" type="text" ${attr}></label>`;
+const out = (html,c="")=>`<div class="out ${c}">${html}</div>`;
+const store = { get(k){ try{ return JSON.parse(localStorage.getItem(k)||"[]"); }catch(e){ return []; } },
+                set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); return true; }catch(e){ return false; } } };
+const today = ()=>new Date().toISOString().slice(0,10);
+
+/* ============ data from the procedure ============ */
+const MATRIX = [["L","Level 1 — Surveillance inspection (operator rounds)"],
+ ["Leakage — seal, gland, flanges, drains","Daily / per shift","Daily","Weekly"],["Abnormal noise, vibration or heat (by sense)","Daily / per shift","Daily","Weekly"],
+ ["Suction and discharge pressure readings","Daily","Daily","Weekly"],["Oil level / lubrication (sight glass, oiler)","Daily","Weekly","Weekly"],
+ ["Seal flush / barrier fluid level and pressure","Daily","Daily","—"],["Coupling guard, baseplate bolts, general housekeeping","Weekly","Weekly","Monthly"],
+ ["Standby pump changeover / test run","Weekly","Weekly","Monthly"],
+ ["L","Level 2 — Technical inspection (measured parameters)"],
+ ["Vibration — pump and motor, DE / NDE, H / V / A","Monthly","Quarterly","Annual"],["Bearing temperature — DE / NDE","Monthly","Quarterly","Annual"],
+ ["Motor current against nameplate","Monthly","Quarterly","Annual"],["Strainer differential pressure / cleaning","Weekly","Monthly","As required"],
+ ["Lubricant condition and change","Per OEM","Per OEM","Per OEM"],["Shaft alignment check (Section 14.4)","Annual + after maintenance","Annual + after maintenance","After maintenance"],
+ ["Performance check — flow / head against curve","Annual","Annual","—"],
+ ["L","Level 3 — Detailed inspection (intrusive)"],
+ ["Internal inspection / overhaul (impeller, wear rings, seal, bearings)","Condition-based or per OEM","Condition-based or per OEM","On failure"],
+ ["Baseplate, grout and foundation bolts","Annual","Annual","Annual"]];
+const FQ = {"Daily / per shift":"f1","Daily":"f1","Weekly":"f2","Monthly":"f3","Quarterly":"f4","Annual":"f5","Annual + after maintenance":"f5"};
+const TROUBLE = [
+ ["No flow / no pressure",["Pump not primed / air-locked","Suction valve closed","Wrong rotation","Strainer fully blocked"],["Vent and prime the pump","Open suction valve fully","Check motor rotation","Clean strainer"]],
+ ["Low flow or low head",["Worn impeller or wear rings","Partially blocked impeller or strainer","Air ingress on suction side","Speed below rated"],["Check strainer DP and clean","Inspect impeller and wear-ring clearance","Check suction joints and gland","Verify motor / VFD speed"]],
+ ["Cavitation noise (gravel sound)",["NPSH available too low","High product temperature","Suction restriction","Operating far right of BEP"],["Check suction pressure and tank level","Open suction valve fully; clean strainer","Bring flow back towards BEP"]],
+ ["High vibration",["Misalignment or soft foot","Unbalance or impeller damage","Bearing damage","Pipe strain or loose foundation","Cavitation or operation off BEP"],["Check alignment (Section 14.4) and soft foot","Check foundation and baseplate bolts","Analyse vibration spectrum; check bearings","Check operating point"]],
+ ["Bearing overheating",["Low / high oil level or wrong grade","Over-greasing","Misalignment","Excessive thrust (off-BEP operation)"],["Correct lubricant level and grade per OEM","Remove excess grease","Check alignment and operating point"]],
+ ["Seal leakage",["Dry running","Seal flush / barrier failure","Face damage or elastomer attack","Shaft runout or misalignment"],["Check flush plan and barrier system","Check runout and alignment","Replace seal; verify seal material suits product"]],
+ ["High motor current",["Flow above design","Higher density or viscosity product","Mechanical rubbing or bearing failure"],["Check operating point and discharge valve","Confirm product properties","Check pump turns freely; inspect bearings"]],
+ ["Low motor current",["Low flow / discharge throttled","Blocked or worn impeller","Air or vapour in pump"],["Check valve positions and system demand","Inspect impeller","Vent pump; check suction conditions"]],
+ ["PD pump — high discharge pressure / relief valve lifting",["Discharge valve closed or line blocked","Relief valve set too low or faulty"],["Stop pump; open discharge / clear blockage","Check and re-set relief valve"]],
+ ["Diaphragm pump — no or erratic flow",["Check valves fouled or worn","Diaphragm rupture","Low air supply (air-operated type)"],["Clean / replace check valves","Replace diaphragm","Check air pressure, filter and regulator"]]];
+const WARN = [["Leakage","Seal dripping","Seal wear"],["Vibration","Increasing trend","Misalignment, imbalance, faulty bearing"],["Temperature","Gradual rise / Sudden rise","Bearing wear / Poor lubrication"],["Noise","Abnormal noise","Cavitation, bearing wear, damaged coupling, misalignment"],["Power","Increased current","Hydraulic issues, faulty bearing, impeller blockage"]];
+const STARTUP = ["Confirm the work permit is closed, isolations are removed and the coupling guard is fitted.","Open the suction valve fully. Vent and prime the pump so it is full of liquid.","Check bearing lubrication and that any seal flush or barrier system is in service.","<b>Centrifugal pumps:</b> set the discharge valve closed or slightly open per site practice, with the minimum-flow line open where fitted.","<b>PD and diaphragm pumps:</b> open the discharge valve fully and confirm the relief valve is in service. <span class='warn'>Never start or run a PD pump against a closed discharge valve.</span>","Start the driver. Check rotation direction (after motor work), noise, vibration and seal leakage.","<b>Centrifugal pumps:</b> open the discharge valve slowly to the required duty to avoid water hammer; do not run for long at low flow."];
+const SHUTDOWN = ["Reduce pressure gradually to prevent surges, water hammer or sudden stress on the pump.","Safely de-energize the pump, ensuring controlled shutdown without mechanical shock.","Isolate the pump from the system to prevent backflow or leakage.","Document operating parameters, issues or anomalies for future analysis and maintenance planning."];
+const SAFETY = ["Permit to Work mandatory","Strict LOTO implementation","Use PPE","Ensure spill containment","Avoid dry running"];
+const CRIT = [["A","Critical","Failure stops product loading / unloading, or creates a safety or environmental risk, and no installed standby is available.","Main product transfer pumps without standby",["Condition monitoring and vibration trending","Critical spares (seals, bearings) held on site","RCA for every failure"],"red"],
+ ["B","Essential","Failure reduces throughput or affects quality, or an installed standby pump is available.","Product pumps with standby; additive injection pumps",["Preventive maintenance plus periodic condition checks","Standby pump run and checked regularly"],"amber"],
+ ["C","Non-critical","Failure has no production, safety or environmental impact.","Drainage / sump pumps, utility water pumps",["Basic surveillance","Corrective maintenance on failure"],""]];
+const ACC = [["14.1 Vibration limits — ISO 10816 (velocity, mm/s RMS)",[["≤ 2.8","Good — Acceptable"],["2.8 – 4.5","Operation allowed — Acceptable"],["4.5 – 7.1","Alert — Plan maintenance"],["> 7.1","Trip — Immediate action"]]],
+ ["14.2 Bearing temperature",[["Normal operating","≤ 80 °C"],["Alarm limit","80 – 90 °C"],["Trip limit","≥ 95 °C"]]],
+ ["14.3 Mechanical seal or packing leakage",[["Mechanical seal","No visible leakage (max: occasional droplet)"],["Packed gland","1–2 drops / sec (controlled leakage)"],["Any splash / continuous leakage","NOT acceptable"]]],
+ ["14.4 Alignment tolerance (short flexible couplings · use OEM tolerance where given)",[["1500 rpm","≤ 0.10 mm parallel offset · ≤ 0.05 mm / 100 mm angular"],["3000 rpm","≤ 0.05 mm parallel offset · ≤ 0.03 mm / 100 mm angular"]]],
+ ["14.5 Lubrication condition",[["Oil level","Within sight glass (mid-level)"],["Oil condition","Clean, no discoloration or particles"],["Grease","No over-greasing or leakage"],["Contamination","Zero water / dirt"]]],
+ ["14.6 Pressure & flow performance",[["Flow rate","≥ 90% of design"],["Discharge pressure","Within ±10% of design"],["Operating point","Preferably near BEP (70–120%)"]]],
+ ["14.7 Motor current & load",[["Current","≤ 100% of rated"],["Normal range","70–90% of rated"],["Overload","> 110% → investigate"]]],
+ ["14.8 Cavitation indication (any cavitation sign = NOT acceptable)",[["Noise","No crackling / gravel sound"],["Vibration","Within limits"],["Suction / discharge pressure","Stable"]]],
+ ["14.9 Suction & discharge condition",[["Suction valve","Fully open"],["Strainer DP","Within normal range"],["Air ingress","Not allowed"],["Pipe strain","No visible stress"]]],
+ ["14.10 Coupling condition",[["Guard","Installed and secure"],["Coupling wear","No abnormal wear"],["Noise","No abnormal sound"]]],
+ ["14.11 Baseplate condition",[["Bolts","Tight"],["Grouting","No cracks"],["Soft foot","Not present"]]]];
+const DEFS = [["BEP","Best Efficiency Point — flow at which the pump runs at highest efficiency; preferred operation is 70–120 % of BEP flow."],["CBM","Condition-Based Maintenance — maintenance triggered by measured condition (vibration, temperature, performance) rather than a fixed calendar."],["DE / NDE","Drive End / Non-Drive End — bearing positions nearest to and furthest from the coupling."],["H / V / A","Horizontal / Vertical / Axial — directions for vibration measurement."],["KPI","Key Performance Indicator."],["LOTO","Lock-Out / Tag-Out — isolation of energy sources with personal locks and tags before work."],["MTBF","Mean Time Between Failures — total operating time divided by the number of failures."],["MTTR","Mean Time To Repair — average time to restore a failed pump to service."],["NPSH","Net Positive Suction Head. NPSHa = available from the system; NPSHr = required by the pump. NPSHa must exceed NPSHr with margin to avoid cavitation."],["OEM","Original Equipment Manufacturer."],["PD pump","Positive Displacement pump — delivers a fixed volume per stroke or revolution (gear, screw, plunger, diaphragm)."],["PTW","Permit to Work — written authorisation defining the work, hazards, isolations and precautions."],["RCA","Root Cause Analysis — structured investigation to find and remove the underlying cause of a failure."],["RMS","Root Mean Square — the averaging method used for vibration velocity (mm/s RMS)."],["VFD","Variable Frequency Drive — controls motor speed."]];
+const ANNEX_A = [["Mechanical seal / gland leakage","Section 14.3",1],["Flange, casing and drain leakage","No leakage",1],["Noise (cavitation, bearing, coupling)","No abnormal noise",1],["Vibration / heat by touch","No abnormal change",1],["Suction pressure (bar)","Stable, within normal range",0],["Discharge pressure (bar)","Within ±10 % of design",0],["Oil level / oiler","Mid sight glass",1],["Seal flush / barrier fluid","In service, level OK",1],["Coupling guard fitted and secure","Installed and secure",1],["Baseplate bolts and grout (visual)","Tight, no cracks",1],["Housekeeping / spill containment","Clean, drip tray clear",1]];
+const ANNEX_B3 = [["Seal / gland leakage","Section 14.3"],["Lubricant level and condition","Section 14.5"],["Alignment (if checked)","Section 14.4"],["Coupling condition","Section 14.10"],["Baseplate, grout, soft foot","Section 14.11"]];
+const POS = ["Motor NDE","Motor DE","Pump DE","Pump NDE"];
+
+/* ============ views ============ */
+const V = {};
+const TOOLS = [
+ ["Inspection records",[["annexa","Surveillance record","Annex A · Level 1 operator round — fill, save, print or export"],["annexb","Technical inspection record","Annex B · Level 2 — vibration, temperature, current with automatic status"]]],
+ ["Condition checks",[["vib","Vibration check","Enter mm/s RMS readings and get the ISO 10816 zone and action"],["temp","Bearing temperature check","Normal, alarm or trip against the procedure limits"],["load","Motor current & load","Running current as % of nameplate rating"],["op","Operating point check","Flow, discharge pressure and BEP position against design"]]],
+ ["Pump calculators",[["head","Total head from gauges","Differential head from suction and discharge pressure readings"],["static","Static head & system head","Zs, Zp, Zd elevations plus losses (procedure Figure 3)"],["npsh","NPSH available","Suction margin against the pump's NPSH required"],["power","Power & efficiency","Hydraulic power, BHP, motor sizing and pump efficiency"],["aff","Affinity laws","Effect of a speed or impeller diameter change"],["units","Unit converter","Pressure, head, flow and power"]]],
+ ["Planning & reliability",[["freq","Inspection frequency","What to check and how often, by pump class"],["crit","Pump criticality class","Class A / B / C definitions and maintenance strategy"],["kpi","KPI calculator","MTBF, MTTR and availability against targets"]]],
+ ["Guides",[["trouble","Troubleshooting guide","Pick a symptom to see likely causes and actions"],["startup","Start-up & shutdown checklist","Step-by-step sequence with tick boxes"],["accept","Acceptance criteria","All Section 14 limits in one place"],["ref","Reference","System arrangement, pump curve, definitions and the full procedure PDF"]]]
+];
+V.home = ()=>`<h1>Pump Performance Toolkit</h1><p class="mut">Field tools for terminal operations and maintenance teams. Works on a phone, tablet or PC, and keeps working offline after the first visit.</p>`+
+ TOOLS.map(([g,ts])=>`<div class="grp">${g}</div><div class="tiles">${ts.map(([id,t,d])=>`<a class="tile" href="#${id}"><b>${t}</b><span>${d}</span></a>`).join("")}</div>`).join("");
+
+/* ---- vibration ---- */
+V.vib = ()=>`<h1>Vibration check</h1><p class="mut">Velocity in mm/s RMS, measured at Drive End and Non-Drive End of pump and motor. Limits: Section 14.1 (ISO 10816), typical pumps / motors up to 355 kVA.</p>
+<div class="card"><div class="row3"><span></span><span class="h">Horizontal</span><span class="h">Vertical</span><span class="h">Axial</span><span class="h" style="min-width:104px">Status</span></div>
+${POS.map((p,i)=>`<div class="row3"><b>${p}</b>${["h","v","a"].map(d=>`<input id="vb${i}${d}" type="number" step="any" inputmode="decimal" aria-label="${p} ${d}">`).join("")}<span id="vbs${i}" style="min-width:104px">—</span></div>`).join("")}
+<div class="gauge"><div style="flex:28;background:#5a9a2e">Good ≤ 2.8</div><div style="flex:17;background:#8cc866;color:#1f3d0f">≤ 4.5</div><div style="flex:26;background:#e0a020">Alert ≤ 7.1</div><div style="flex:29;background:#c0392b">Trip &gt; 7.1</div></div>
+<div id="vbo"></div></div>`;
+V.vib.calc = ()=>{ let worst=-1, cls=[];
+  POS.forEach((p,i)=>{ const vals=["h","v","a"].map(d=>N("vb"+i+d)).filter(isFinite); const el=$("#vbs"+i);
+    if(!vals.length){ el.innerHTML="—"; return; } const m=Math.max(...vals), r=C.vib(m); worst=Math.max(worst,m); cls.push(r.c); el.innerHTML=pill(r.s,r.c); });
+  if(worst<0){ $("#vbo").innerHTML=""; return; } const r=C.vib(worst), c=r.c==="ok2"?"":r.c;
+  $("#vbo").innerHTML=out(`<div class="big">${fx(worst,2)} mm/s — ${r.z}</div>Highest reading. Status: <b>${r.s}</b>.${r.c==="amber"?" Plan maintenance; check alignment, soft foot, bearings and operating point.":""}${r.c==="red"?" Stop the pump and investigate before further operation.":""}`,c); };
+
+/* ---- temperature ---- */
+V.temp = ()=>`<h1>Bearing temperature check</h1><p class="mut">Limits: Section 14.2 — normal ≤ 80 °C, alarm 80–90 °C, trip ≥ 95 °C. A sudden increase (&gt; 10 °C rise) indicates early failure.</p>
+<div class="card"><div class="form">${F("tp1","Pump DE","°C")}${F("tp2","Pump NDE","°C")}${F("tp3","Motor DE","°C")}${F("tp4","Motor NDE","°C")}${F("tp0","Previous reading (highest bearing)","°C")}</div><div id="tpo"></div></div>`;
+V.temp.calc = ()=>{ const names=["Pump DE","Pump NDE","Motor DE","Motor NDE"], v=[1,2,3,4].map(i=>N("tp"+i)); const have=v.filter(isFinite);
+  if(!have.length){ $("#tpo").innerHTML=""; return; } const m=Math.max(...have), r=C.temp(m), prev=N("tp0"); let extra="";
+  if(isFinite(prev)&&m-prev>10) extra=`<br><span class="warn">Rise of ${fx(m-prev,0)} °C since the previous reading — sudden increase indicates early failure.</span>`;
+  $("#tpo").innerHTML=out(`<div class="big">${fx(m,0)} °C — ${r.z}</div>${names.map((n,i)=>isFinite(v[i])?`${n}: ${pill(C.temp(v[i]).s,C.temp(v[i]).c)} `:"").join(" ")}${extra}`,(extra&&!r.c)?"amber":r.c); };
+
+/* ---- motor load ---- */
+V.load = ()=>`<h1>Motor current &amp; load</h1><p class="mut">Limits: Section 14.7 — current ≤ 100% of rated, normal range 70–90% of rated, &gt; 110% → investigate.</p>
+<div class="card"><div class="form">${F("ld1","Running current","A")}${F("ld2","Nameplate rated current","A")}</div><div id="ldo"></div></div>`;
+V.load.calc = ()=>{ const i=N("ld1"), r=N("ld2"); if(!(i>=0&&r>0)){ $("#ldo").innerHTML=""; return; } const p=i/r*100, s=C.load(p);
+  $("#ldo").innerHTML=out(`<div class="big">${fx(p,0)}% of rated — ${s.z}</div>${s.s}`,s.c==="ok2"?"":s.c); };
+
+/* ---- operating point ---- */
+V.op = ()=>`<h1>Operating point check</h1><p class="mut">Limits: Section 14.6 — flow ≥ 90% of design, discharge pressure within ±10% of design, operating point preferably near BEP (70–120%).</p>
+<div class="card"><div class="form">${F("op1","Measured flow","m³/h")}${F("op2","Design flow","m³/h")}${F("op3","BEP flow from pump curve","m³/h")}${F("op4","Measured discharge pressure","bar")}${F("op5","Design discharge pressure","bar")}</div><div id="opo"></div></div>`;
+V.op.calc = ()=>{ const q=N("op1"), qd=N("op2"), qb=N("op3"), p=N("op4"), pd=N("op5"); let rows=[], cls=[];
+  if(q>=0&&qd>0){ const x=q/qd*100, r=C.flow(x); rows.push(`<span>Flow: ${fx(x,0)}% of design</span><b>${pill(r.s,r.c)}</b>`); cls.push(r.c); }
+  if(q>=0&&qb>0){ const x=q/qb*100, r=C.bep(x); rows.push(`<span>Operating point: ${fx(x,0)}% of BEP flow</span><b>${pill(r.c?"Outside 70–120%":"Within 70–120%",r.c)}</b>`); cls.push(r.c); }
+  if(p>=0&&pd>0){ const x=p/pd*100, r=C.press(x); rows.push(`<span>Discharge pressure: ${fx(x,0)}% of design (${x>=100?"+":""}${fx(x-100,0)}%)</span><b>${pill(r.s,r.c)}</b>`); cls.push(r.c); }
+  $("#opo").innerHTML=rows.length?out(`<div class="kv">${rows.join("")}</div>`,C.worst(cls)):""; };
+
+/* ---- head from gauges ---- */
+V.head = ()=>`<h1>Total head from gauges</h1><p class="mut">Differential head developed by the pump, from suction and discharge gauge readings taken at the same time.</p>
+<div class="card"><div class="form">${F("hd1","Discharge gauge pressure","bar g")}${F("hd2","Suction gauge pressure","bar g · negative for vacuum")}${F("hd3","Liquid specific gravity","water = 1.00",'value="1"')}${F("hd4","Discharge gauge height above suction gauge","m",'value="0"')}</div>
+<h3>Velocity head correction <span class="mut small">(optional — only matters when the suction and discharge pipes are different sizes)</span></h3>
+<div class="form">${F("hd5","Flow","m³/h")}${F("hd6","Suction pipe inside diameter","mm")}${F("hd7","Discharge pipe inside diameter","mm")}</div><div id="hdo"></div></div>`;
+V.head.calc = ()=>{ const pd=N("hd1"), ps=N("hd2"), sg=N("hd3"), dz=isFinite(N("hd4"))?N("hd4"):0; if(!(isFinite(pd)&&isFinite(ps)&&sg>0)){ $("#hdo").innerHTML=""; return; }
+  const q=N("hd5"), ds=N("hd6"), dd=N("hd7"); let dv=0, vt="";
+  if(q>0&&ds>0&&dd>0){ const vs=C.vel(q,ds), vd=C.vel(q,dd); dv=(vd*vd-vs*vs)/(2*9.80665); vt=`<span>Velocity: suction ${fx(vs,2)} m/s, discharge ${fx(vd,2)} m/s</span><b>${fx(dv,2)} m</b>`; }
+  const h=C.head(pd,ps,sg,dz,dv);
+  $("#hdo").innerHTML=out(`<div class="big">Total head = ${fx(h,1)} m</div><div class="kv"><span>Pressure head (Pd − Ps) × 10.197 ÷ SG</span><b>${fx((pd-ps)*10.1972/sg,1)} m</b><span>Gauge elevation difference</span><b>${fx(dz,2)} m</b>${vt}<span>Equivalent</span><b>${fx(h*3.28084,0)} ft</b></div><p class="small mut" style="margin:8px 0 0">Compare this head at the measured flow with the OEM pump curve. Head well below the curve points to wear, blockage or air ingress.</p>`); };
+
+/* ---- static / system head ---- */
+V.static = ()=>`<h1>Static head &amp; system head</h1><p class="mut">The head the system demands (procedure Figure 3). Elevations are measured from a common datum; open tanks.</p>
+<figure><img src="assets/arrangement.jpg" alt="Typical pumping system arrangement" loading="lazy"><figcaption>Typical pumping system arrangement — instrumentation and elevations</figcaption></figure>
+<div class="card"><div class="form">${F("st1","Zs — suction tank water level elevation","m")}${F("st2","Zp — pump centreline elevation","m")}${F("st3","Zd — delivery tank water level elevation","m")}${F("st4","hf,p — pipe friction losses","m",'value="0"')}${F("st5","hf,f — fitting losses","m",'value="0"')}</div><div id="sto"></div></div>`;
+V.static.calc = ()=>{ const zs=N("st1"), zp=N("st2"), zd=N("st3"), a=isFinite(N("st4"))?N("st4"):0, b=isFinite(N("st5"))?N("st5"):0; if(![zs,zp,zd].every(isFinite)){ $("#sto").innerHTML=""; return; }
+  const hs=zp-zs, hd=zd-zp, hl=a+b, h=hs+hd+hl;
+  $("#sto").innerHTML=out(`<div class="big">Total pump head H = ${fx(h,1)} m</div><div class="kv"><span>Suction static head Hs = Zp − Zs ${hs<0?"(negative = flooded suction)":"(suction lift)"}</span><b>${fx(hs,2)} m</b><span>Discharge static head Hd = Zd − Zp</span><b>${fx(hd,2)} m</b><span>Losses hL = hf,p + hf,f</span><b>${fx(hl,2)} m</b><span>Static head Zd − Zs</span><b>${fx(zd-zs,2)} m</b></div>`); };
+
+/* ---- NPSH ---- */
+V.npsh = ()=>`<h1>NPSH available</h1><p class="mut">NPSH available at the pump suction must exceed the OEM NPSH required plus margin (NPSHA ≥ NPSHR + S). Low NPSH causes cavitation.</p>
+<div class="card"><div class="form">${F("np1","Atmospheric pressure","bar abs",'value="1.013"')}${F("np2","Suction tank gauge pressure","bar g · 0 for open tank",'value="0"')}${F("np3","Liquid vapour pressure at pumping temperature","bar abs")}${F("np4","Liquid specific gravity","",'value="1"')}${F("np5","Liquid level above pump centreline","m · negative if below")}${F("np6","Suction line friction loss","m",'value="0"')}${F("np7","NPSH required from pump curve","m")}${F("np8","Margin S","m",'value="0.5"')}</div><div id="npo"></div></div>`;
+V.npsh.calc = ()=>{ const v=[1,2,3,4,5,6].map(i=>N("np"+i)); if(!v.every(isFinite)||!(v[3]>0)){ $("#npo").innerHTML=""; return; }
+  const a=C.npsha(...v), r=N("np7"), s=isFinite(N("np8"))?N("np8"):0; let t=`<div class="big">NPSH available = ${fx(a,1)} m</div>`, c="";
+  if(isFinite(r)){ const ok=a>=r+s; c=ok?"":"red"; t+=`Required + margin = ${fx(r+s,1)} m → ${pill(ok?"Adequate":"NOT adequate — cavitation risk",c)}<br>Margin over NPSH required: <b>${fx(a-r,1)} m</b>`;
+    if(!ok) t+=`<p class="small" style="margin:8px 0 0">Raise the tank level, clean suction strainers, open the suction valve fully or reduce flow towards BEP.</p>`; }
+  $("#npo").innerHTML=out(t,c); };
+
+/* ---- power ---- */
+V.power = ()=>`<h1>Power &amp; efficiency</h1><p class="mut">Hydraulic power, shaft power (BHP) and pump efficiency.</p>
+<div class="card"><h3 style="margin-top:0">Hydraulic and shaft power</h3><div class="form">${F("pw1","Flow","m³/h")}${F("pw2","Total head","m")}${F("pw3","Liquid specific gravity","",'value="1"')}${F("pw4","Pump efficiency","% · from pump curve")}</div><div id="pwo"></div></div>
+<div class="card"><h3 style="margin-top:0">Pump efficiency from motor readings</h3><p class="small mut">Uses the flow, head and specific gravity entered above.</p><div class="form">${F("pw5","Line voltage","V",'value="400"')}${F("pw6","Running current","A")}${F("pw7","Power factor","",'value="0.85"')}${F("pw8","Motor efficiency","%",'value="93"')}</div><div id="pwo2"></div></div>`;
+V.power.calc = ()=>{ const q=N("pw1"), h=N("pw2"), sg=N("pw3"), e=N("pw4"); let ph=NaN;
+  if(q>0&&h>0&&sg>0){ ph=C.hyd(q,h,sg); let t=`<div class="big">Hydraulic power = ${fx(ph,1)} kW</div>`;
+    if(e>0&&e<=100){ const sh=ph/(e/100), m=C.margin(sh); t+=`<div class="kv"><span>Shaft power (BHP)</span><b>${fx(sh,1)} kW · ${fx(sh/0.7457,1)} hp</b><span>Minimum motor rating (API 610 margin ${Math.round(m*100)}%)</span><b>${fx(sh*m,1)} kW</b></div><p class="small mut" style="margin:8px 0 0">Margin: 125% below 22 kW, 115% for 22–55 kW, 110% above 55 kW. The motor must also cover the maximum power along the selected impeller curve.</p>`; }
+    $("#pwo").innerHTML=out(t); } else $("#pwo").innerHTML="";
+  const v=N("pw5"), i=N("pw6"), pf=N("pw7"), me=N("pw8");
+  if(v>0&&i>0&&pf>0&&me>0){ const pin=Math.sqrt(3)*v*i*pf/1000, sh=pin*me/100; let t=`<div class="kv"><span>Electrical input power</span><b>${fx(pin,1)} kW</b><span>Estimated shaft power</span><b>${fx(sh,1)} kW · ${fx(sh/0.7457,1)} hp</b>`;
+    if(isFinite(ph)){ const eff=ph/sh*100; t+=`<span>Pump efficiency</span><b>${fx(eff,1)}%</b>`; } t+=`</div>`;
+    $("#pwo2").innerHTML=out(t+(isFinite(ph)?`<p class="small mut" style="margin:8px 0 0">Compare with the efficiency on the OEM curve at this flow. A drop of several points suggests internal wear.</p>`:"")); } else $("#pwo2").innerHTML=""; };
+
+/* ---- affinity ---- */
+V.aff = ()=>`<h1>Affinity laws</h1><p class="mut">Estimate of how flow, head and power change with speed (VFD) or impeller diameter. Flow ∝ ratio, head ∝ ratio², power ∝ ratio³. Diameter changes are approximate — confirm with the OEM.</p>
+<div class="card"><div class="form"><label class="f">Change<select id="af0"><option value="s">Speed (rpm)</option><option value="d">Impeller diameter (mm)</option></select></label>${F("af1","Current value","rpm or mm")}${F("af2","New value","rpm or mm")}${F("af3","Current flow","m³/h")}${F("af4","Current head","m")}${F("af5","Current power","kW")}</div><div id="afo"></div></div>`;
+V.aff.calc = ()=>{ const a=N("af1"), b=N("af2"); if(!(a>0&&b>0)){ $("#afo").innerHTML=""; return; } const r=b/a, q=N("af3"), h=N("af4"), p=N("af5");
+  $("#afo").innerHTML=out(`<div class="big">Ratio = ${fx(r,3)}</div><div class="kv"><span>Flow (× ${fx(r,3)})</span><b>${isFinite(q)?fx(q*r,1)+" m³/h":"—"}</b><span>Head (× ${fx(r*r,3)})</span><b>${isFinite(h)?fx(h*r*r,1)+" m":"—"}</b><span>Power (× ${fx(r*r*r,3)})</span><b>${isFinite(p)?fx(p*r*r*r,1)+" kW":"—"}</b></div>`); };
+
+/* ---- units ---- */
+const UNITS = { Pressure:{bar:1,psi:0.0689476,kPa:0.01,"kg/cm²":0.980665,"m water":0.0980665,"ft water":0.0298907}, Flow:{"m³/h":1,"l/s":3.6,"l/min":0.06,"US gpm":0.227125,"Imp gpm":0.272765,"bbl/day":0.00662447}, Power:{kW:1,hp:0.7457,"hp (metric)":0.7355}, Length:{m:1,ft:0.3048,mm:0.001,inch:0.0254}, Temperature:{"°C":1,"°F":1} };
+V.units = ()=>`<h1>Unit converter</h1><div class="card"><div class="form"><label class="f">Quantity<select id="un0">${Object.keys(UNITS).map(k=>`<option>${k}</option>`).join("")}</select></label>${F("un1","Value")}<label class="f">From<select id="un2"></select></label></div><div id="uno"></div></div>`;
+V.units.init = ()=>{ const fill=()=>{ $("#un2").innerHTML=Object.keys(UNITS[$("#un0").value]).map(k=>`<option>${k}</option>`).join(""); }; fill(); $("#un0").addEventListener("change",()=>{fill();V.units.calc();}); };
+V.units.calc = ()=>{ const k=$("#un0").value, v=N("un1"), f=$("#un2").value; if(!isFinite(v)){ $("#uno").innerHTML=""; return; }
+  let rows; if(k==="Temperature"){ const c=f==="°C"?v:(v-32)*5/9; rows=[["°C",c],["°F",c*9/5+32]]; } else { const base=v*UNITS[k][f]; rows=Object.entries(UNITS[k]).map(([u,m])=>[u,base/m]); }
+  $("#uno").innerHTML=out(`<div class="kv">${rows.map(([u,x])=>`<span>${u}</span><b>${fx(x,Math.abs(x)<10?3:1)}</b>`).join("")}</div>`); };
+
+/* ---- frequency ---- */
+V.freq = ()=>`<h1>Inspection frequency</h1><p class="mut">Recommended starting frequencies by inspection level and pump class (Section 16). Adjust to OEM requirements and failure history; any abnormal finding triggers the next inspection level.</p>
+<div class="card"><label class="f">Show<select id="fq0"><option value="">All classes</option><option value="1">Class A — Critical</option><option value="2">Class B — Essential</option><option value="3">Class C — Non-critical</option></select></label><div class="scroll" id="fqo" style="margin-top:10px"></div><p class="small mut" style="margin:10px 0 0">Record Level 1 checks on Annex A and Level 2 checks on Annex B.</p></div>`;
+V.freq.calc = ()=>{ const k=+$("#fq0").value, cols=k?[k]:[1,2,3], f=s=>FQ[s]?pill(s,FQ[s]):esc(s);
+  $("#fqo").innerHTML=`<table><thead><tr><th>Check</th>${cols.map(c=>`<th>Class ${"ABC"[c-1]}</th>`).join("")}</tr></thead><tbody>${MATRIX.map(r=>r[0]==="L"?`<tr class="lvl"><td colspan="${cols.length+1}">${r[1]}</td></tr>`:`<tr><td>${r[0]}</td>${cols.map(c=>`<td>${f(r[c])}</td>`).join("")}</tr>`).join("")}</tbody></table>`; };
+
+/* ---- criticality ---- */
+V.crit = ()=>`<h1>Pump criticality class</h1><p class="mut">Every pump is assigned a class in the asset register. The class sets the inspection frequency (Section 16), spares holding and KPI targets (Section 13 — “critical pumps” means Class A).</p>
+${CRIT.map(([c,n,d,ex,st,cl])=>`<div class="card"><p>${pill("Class "+c+" — "+n,cl)}</p><p>${d}</p><p class="small"><b>Typical terminal examples:</b> ${ex}</p><b class="small">Maintenance strategy</b><ul style="margin:4px 0 0;padding-left:20px">${st.map(s=>`<li>${s}</li>`).join("")}</ul></div>`).join("")}
+${out("The class of each pump is to be agreed by Operations and Maintenance and reviewed whenever duty, sparing or the product handled changes.","amber")}`;
+
+/* ---- KPI ---- */
+V.kpi = ()=>`<h1>KPI calculator</h1><p class="mut">Targets from Section 13. Availability % = (Total Time − Downtime) ÷ Total Time × 100. Downtime = time unavailable for duty due to failure, repair or maintenance.</p>
+<div class="card"><div class="form">${F("kp1","Period covered","months",'value="12"')}${F("kp2","Number of failures in the period")}${F("kp3","Total downtime in the period","hours")}</div><div id="kpo"></div></div>`;
+V.kpi.calc = ()=>{ const m=N("kp1"), n=N("kp2"), d=N("kp3"); if(!(m>0)){ $("#kpo").innerHTML=""; return; } let rows=[], cls=[]; const tot=m*730;
+  if(n>=0){ if(n===0) rows.push(`<span>MTBF</span><b>No failures in ${fx(m,0)} months</b>`); else { const mt=m/n; const r=mt>36?["World-class (> 36 months)",""]:mt>=12?["Target for critical pumps (> 12–24 months)",""]:mt>6?["Above minimum (> 6 months), below target","amber"]:["Below minimum (> 6 months)","red"]; cls.push(r[1]); rows.push(`<span>MTBF = ${fx(mt,1)} months</span><b>${pill(r[0],r[1])}</b>`); if(d>=0) rows.push(`<span>MTTR</span><b>${fx(d/n,1)} hours per failure</b>`); } }
+  if(d>=0&&d<=tot){ const a=(tot-d)/tot*100; const r=a>=98?["Target (≥ 98%, critical pumps)",""]:a>=95?["Good (95–98%)","ok2"]:["Below 95% — improvement required","red"]; cls.push(r[1]); rows.push(`<span>Availability = ${fx(a,2)}%</span><b>${pill(r[0],r[1])}</b>`); }
+  $("#kpo").innerHTML=rows.length?out(`<div class="kv">${rows.join("")}</div>`,C.worst(cls)==="ok2"?"":C.worst(cls)):""; };
+
+/* ---- troubleshooting ---- */
+V.trouble = ()=>`<h1>Troubleshooting guide</h1><div class="card"><label class="f">Symptom<select id="tr0">${TROUBLE.map((t,i)=>`<option value="${i}">${t[0]}</option>`).join("")}</select></label><div id="tro"></div></div>
+<h2>Early warning signs</h2><div class="card scroll"><table><thead><tr><th>Parameter</th><th>Early symptom</th><th>Possible cause</th></tr></thead><tbody>${WARN.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("")}</tbody></table></div>`;
+V.trouble.calc = ()=>{ const t=TROUBLE[+$("#tr0").value]; $("#tro").innerHTML=`<h3>Likely cause</h3><ul>${t[1].map(x=>`<li>${x}</li>`).join("")}</ul><h3>Action</h3><ul>${t[2].map(x=>`<li>${x}</li>`).join("")}</ul>`; };
+
+/* ---- startup ---- */
+V.startup = ()=>`<h1>Start-up &amp; shutdown checklist</h1>
+<h2>Safety requirements</h2><div class="card">${SAFETY.map(s=>`<label class="chk"><input type="checkbox"><span>${s}</span></label>`).join("")}</div>
+<h2>Start-up procedure</h2><div class="card">${STARTUP.map((s,i)=>`<label class="chk"><input type="checkbox"><span class="n">${i+1}</span><span>${s}</span></label>`).join("")}</div>
+<h2>Shutdown procedure</h2><div class="card">${SHUTDOWN.map((s,i)=>`<label class="chk dk"><input type="checkbox"><span class="n">${i+1}</span><span>${s}</span></label>`).join("")}</div>
+<div class="bar"><button class="sec" onclick="document.querySelectorAll('.chk input').forEach(c=>c.checked=false)">Clear ticks</button></div>`;
+
+/* ---- acceptance ---- */
+V.accept = ()=>`<h1>Acceptance criteria</h1><p class="mut">Section 14 — operation and inspection.</p>${ACC.map(([t,rows])=>`<div class="card"><h3 style="margin-top:0">${t}</h3><table><tbody>${rows.map(r=>`<tr><td style="width:42%">${r[0]}</td><td>${r[1]}</td></tr>`).join("")}</tbody></table></div>`).join("")}`;
+
+/* ---- reference ---- */
+V.ref = ()=>`<h1>Reference</h1><div class="bar"><a class="btn" href="assets/procedure.pdf" target="_blank" rel="noopener">Open the full procedure (PDF)</a></div>
+<figure><img src="assets/arrangement.jpg" alt="" loading="lazy"><figcaption>Typical pumping system arrangement — instrumentation and elevations</figcaption></figure>
+<figure><img src="assets/head.png" alt="" loading="lazy"><figcaption>Head calculation — suction, discharge, losses and total pump head</figcaption></figure>
+<figure><img src="assets/curve.png" alt="" loading="lazy"><figcaption>Typical Q-H and brake horsepower (BHP) curves — KSB Omega 350-360B, n = 1450 rpm. Redrawn for illustration; use the OEM curve for acceptance.</figcaption></figure>
+<h2>Selection requirements</h2><div class="card"><ul style="margin:0;padding-left:20px"><li><b>Duty point</b> — the required flow and total head must lie on the selected impeller curve, preferably within 70–120 % of BEP flow (API 610 preferred operating region).</li><li><b>NPSH</b> — NPSH available at the pump suction must exceed the OEM NPSH required plus margin (NPSHA ≥ NPSHR + S).</li><li><b>Minimum flow</b> — continuous operation below the OEM minimum flow (Qmin) is not permitted.</li><li><b>Driver sizing</b> — motor rating must cover the maximum absorbed power (BHP) along the selected impeller curve, with API 610 margins of 125 % (&lt; 22 kW), 115 % (22–55 kW) and 110 % (&gt; 55 kW) over rated power.</li></ul></div>
+<h2>Reference videos</h2><div class="card"><p><a href="https://www.youtube.com/watch?v=WUal9LXc0iM&t=2s" target="_blank" rel="noopener">▶ How do centrifugal pumps work?</a></p><p><a href="https://www.youtube.com/watch?v=J3jIDvL9bPI" target="_blank" rel="noopener">▶ Troubleshooting centrifugal pumps</a></p><p style="margin:0"><a href="https://www.youtube.com/watch?v=l8qPDoC5MEE&t=2s" target="_blank" rel="noopener">▶ Centrifugal pump maintenance — repair &amp; predictive maintenance</a></p></div>
+<h2>Definitions and abbreviations</h2><div class="card scroll"><table><tbody>${DEFS.map(d=>`<tr><td style="white-space:nowrap;color:var(--gd)"><b>${d[0]}</b></td><td>${d[1]}</td></tr>`).join("")}</tbody></table></div>`;
+
+/* ---- inspection records (Annex A / B) ---- */
+const hdr = (p,b)=>`<div class="form">${T(p+"site","Site")}${T(p+"tag","Pump tag")}<label class="f">Class<select id="${p}cls"><option></option><option>A</option><option>B</option><option>C</option></select></label><label class="f">Date<input id="${p}date" type="date" value="${today()}"></label>${b?T(p+"insp","Inspector")+T(p+"inst","Instrument / ID")+T(p+"make","Pump make / model")+T(p+"rated","Rated flow / head")+T(p+"motor","Motor kW / rpm"):T(p+"shift","Shift")+T(p+"insp","Inspector")+`<label class="f">Pump status<select id="${p}stat"><option></option><option>Running</option><option>Standby</option><option>Out of service</option></select></label>`}</div>`;
+const okno = (name)=>`<span class="seg"><label><input type="radio" name="${name}" value="OK"><span>OK</span></label><label class="no"><input type="radio" name="${name}" value="Not OK"><span>Not OK</span></label></span>`;
+const recBar = k=>`<div class="bar noprint"><button onclick="saveRec('${k}')">Save record</button><button class="sec" onclick="window.print()">Print / save as PDF</button><button class="sec" onclick="exportCsv('${k}')">Export all saved (CSV)</button><button class="sec" onclick="location.reload()">New blank form</button></div><div id="${k}msg" class="small"></div><h2 class="noprint">Saved on this device</h2><div class="card noprint" id="${k}list"></div>`;
+
+V.annexa = ()=>`<h1>Annex A — Surveillance Inspection Record (Level 1)</h1><div class="card">${hdr("a")}</div>
+<div class="card">${ANNEX_A.map(([c,acc,b],i)=>`<div class="item"><div class="q"><b>${i+1}. ${c}<small>Acceptance: ${acc}</small></b>${b?okno("a"+i):`<input id="aval${i}" type="number" step="any" inputmode="decimal" placeholder="bar" style="width:110px;margin:0">`}</div><input class="rm" id="arm${i}" type="text" placeholder="Remarks"></div>`).join("")}
+<label class="f" style="margin-top:12px">Abnormalities found / action taken<textarea id="anote"></textarea></label>
+<div class="form" style="margin-top:10px">${T("aby","Inspected by")}${T("arev","Reviewed by")}</div></div>${recBar("a")}`;
+V.annexa.read = ()=>{ const g=id=>($("#"+id)||{}).value||""; const r={Site:g("asite"),"Pump tag":g("atag"),Class:g("acls"),Date:g("adate"),Shift:g("ashift"),Inspector:g("ainsp"),"Pump status":g("astat")};
+  ANNEX_A.forEach(([c,,b],i)=>{ r[c]=b?(($(`input[name=a${i}]:checked`)||{}).value||""):g("aval"+i); r[c+" — remarks"]=g("arm"+i); });
+  r["Abnormalities / action"]=g("anote"); r["Inspected by"]=g("aby"); r["Reviewed by"]=g("arev");
+  r._result=ANNEX_A.some(([c,,b])=>b&&r[c]==="Not OK")?"Not OK items":"OK"; return r; };
+
+V.annexb = ()=>`<h1>Annex B — Technical Inspection Record (Level 2)</h1><div class="card">${hdr("b",1)}</div>
+<h2>1. Vibration — velocity, mm/s RMS (limits: Section 14.1)</h2><div class="card"><div class="row3"><span></span><span class="h">Horizontal</span><span class="h">Vertical</span><span class="h">Axial</span><span class="h" style="min-width:104px">Status</span></div>
+${POS.map((p,i)=>`<div class="row3"><b>${p}</b>${["h","v","a"].map(d=>`<input id="bv${i}${d}" type="number" step="any" inputmode="decimal" aria-label="${p} ${d}">`).join("")}<span id="bvs${i}" style="min-width:104px">—</span></div>`).join("")}</div>
+<h2>2. Operating parameters</h2><div class="card"><div class="form">${F("bt1","Bearing temp. — pump DE","°C · limit ≤ 80 °C")}${F("bt2","Bearing temp. — pump NDE","°C · limit ≤ 80 °C")}${F("bi","Motor current","A")}${F("bir","Motor rated current","A · nameplate")}${F("bps","Suction pressure","bar · stable")}${F("bpd","Discharge pressure","bar")}${F("bpdd","Design discharge pressure","bar")}${F("bq","Flow, if metered","m³/h")}${F("bqd","Design flow","m³/h")}${F("bqb","BEP flow","m³/h")}${F("bdp","Strainer DP","bar · within normal range")}</div><div id="bop"></div></div>
+<h2>3. Condition checks</h2><div class="card">${ANNEX_B3.map(([c,acc],i)=>`<div class="item"><div class="q"><b>${c}<small>Acceptance: ${acc}</small></b>${okno("b"+i)}</div>${i===2?`<div class="form" style="margin-top:8px">${F("boff","Parallel offset","mm")}${F("bang","Angular","mm / 100 mm")}</div>`:""}<input class="rm" id="brm${i}" type="text" placeholder="Remarks"></div>`).join("")}</div>
+<div class="card"><label class="f">Findings and recommended actions<textarea id="bnote"></textarea></label>
+<div class="form" style="margin-top:10px"><label class="f">Overall result<select id="bres"><option></option><option>Acceptable</option><option>Plan maintenance</option><option>Immediate action</option></select></label>${T("bby","Inspected by")}${T("brev","Reviewed by")}</div><div id="bsum"></div></div>${recBar("b")}`;
+V.annexb.calc = ()=>{ let cls=[], rows=[];
+  POS.forEach((p,i)=>{ const vals=["h","v","a"].map(d=>N("bv"+i+d)).filter(isFinite), el=$("#bvs"+i); if(!vals.length){ el.innerHTML="—"; return; } const r=C.vib(Math.max(...vals)); cls.push(r.c); el.innerHTML=pill(r.s,r.c); });
+  [["bt1","Bearing temp. — pump DE"],["bt2","Bearing temp. — pump NDE"]].forEach(([id,n])=>{ const t=N(id); if(isFinite(t)){ const r=C.temp(t); cls.push(r.c); rows.push(`<span>${n}: ${fx(t,0)} °C</span><b>${pill(r.s,r.c)}</b>`); } });
+  const i=N("bi"), ir=N("bir"); if(i>=0&&ir>0){ const p=i/ir*100, r=C.load(p); cls.push(r.c==="ok2"?"":r.c); rows.push(`<span>Motor current: ${fx(p,0)}% of rated</span><b>${pill(r.z,r.c)}</b>`); }
+  const pd=N("bpd"), pdd=N("bpdd"); if(pd>=0&&pdd>0){ const r=C.press(pd/pdd*100); cls.push(r.c); rows.push(`<span>Discharge pressure: ${fx(pd/pdd*100,0)}% of design</span><b>${pill(r.c?"Outside ±10%":"Within ±10%",r.c)}</b>`); }
+  const q=N("bq"), qd=N("bqd"), qb=N("bqb"); if(q>=0&&qd>0){ const r=C.flow(q/qd*100); cls.push(r.c); rows.push(`<span>Flow: ${fx(q/qd*100,0)}% of design</span><b>${pill(r.c?"Below 90%":"≥ 90%",r.c)}</b>`); }
+  if(q>=0&&qb>0){ const r=C.bep(q/qb*100); cls.push(r.c); rows.push(`<span>Operating point: ${fx(q/qb*100,0)}% of BEP</span><b>${pill(r.c?"Outside 70–120%":"Within 70–120%",r.c)}</b>`); }
+  const rpm=/(\d{3,4})\s*rpm/i.exec(($("#bmotor")||{}).value||""), off=N("boff"), ang=N("bang");
+  if(isFinite(off)||isFinite(ang)){ const hi=rpm&&+rpm[1]>2000, lo=hi?[0.05,0.03]:[0.10,0.05], bad=(off>lo[0])||(ang>lo[1]); cls.push(bad?"amber":""); rows.push(`<span>Alignment vs ${hi?"3000":"1500"} rpm tolerance (≤ ${lo[0].toFixed(2)} mm, ≤ ${lo[1].toFixed(2)} mm/100 mm)</span><b>${pill(bad?"Out of tolerance":"Within tolerance",bad?"amber":"")}</b>`); }
+  ANNEX_B3.forEach((c,k)=>{ if(($(`input[name=b${k}]:checked`)||{}).value==="Not OK") cls.push("amber"); });
+  $("#bop").innerHTML=rows.length?out(`<div class="kv">${rows.join("")}</div>`,C.worst(cls.filter(c=>c!=="ok2"))):"";
+  const w=C.worst(cls), sug=w==="red"?"Immediate action":w==="amber"?"Plan maintenance":cls.length?"Acceptable":"";
+  $("#bsum").innerHTML=sug?out(`Suggested overall result from the readings entered: <b>${sug}</b>. <button class="sec" style="padding:4px 10px;margin-left:6px" onclick="document.getElementById('bres').value='${sug}'">Use</button>`,w==="ok2"?"":w):""; };
+V.annexb.read = ()=>{ const g=id=>($("#"+id)||{}).value||""; const r={Site:g("bsite"),"Pump tag":g("btag"),Class:g("bcls"),Date:g("bdate"),Inspector:g("binsp"),"Instrument / ID":g("binst"),"Pump make / model":g("bmake"),"Rated flow / head":g("brated"),"Motor kW / rpm":g("bmotor")};
+  POS.forEach((p,i)=>["h","v","a"].forEach((d,j)=>r[`${p} ${["H","V","A"][j]} (mm/s)`]=g("bv"+i+d)));
+  Object.assign(r,{"Bearing temp. pump DE (°C)":g("bt1"),"Bearing temp. pump NDE (°C)":g("bt2"),"Motor current (A)":g("bi"),"Motor rated current (A)":g("bir"),"Suction pressure (bar)":g("bps"),"Discharge pressure (bar)":g("bpd"),"Design discharge pressure (bar)":g("bpdd"),"Flow (m³/h)":g("bq"),"Design flow (m³/h)":g("bqd"),"BEP flow (m³/h)":g("bqb"),"Strainer DP (bar)":g("bdp")});
+  ANNEX_B3.forEach(([c],i)=>{ r[c]=($(`input[name=b${i}]:checked`)||{}).value||""; r[c+" — remarks"]=g("brm"+i); });
+  r["Alignment offset (mm)"]=g("boff"); r["Alignment angular (mm/100 mm)"]=g("bang"); r["Findings / actions"]=g("bnote"); r["Overall result"]=g("bres"); r["Inspected by"]=g("bby"); r["Reviewed by"]=g("brev"); r._result=g("bres")||"—"; return r; };
+
+function listRecs(k){ const el=$("#"+k+"list"); if(!el) return; const recs=store.get("wafi_"+k);
+  el.innerHTML=recs.length?recs.map((r,i)=>`<div class="rec"><span><b>${esc(r.Date||"")}</b> · ${esc(r["Pump tag"]||"no tag")} · ${esc(r.Site||"")} — ${esc(r._result||"")}</span><button class="dng" style="padding:4px 10px" onclick="delRec('${k}',${i})">Delete</button></div>`).join(""):`<span class="mut small">No records saved yet.</span>`; }
+function saveRec(k){ const r=V[k==="a"?"annexa":"annexb"].read(), m=$("#"+k+"msg"); if(!r["Pump tag"]){ m.innerHTML=`<span class="warn">Enter the pump tag before saving.</span>`; return; }
+  const recs=store.get("wafi_"+k); recs.unshift(r); m.innerHTML=store.set("wafi_"+k,recs)?"Saved on this device. Export to CSV to keep a copy elsewhere.":`<span class="warn">Could not save in this browser. Use Print / save as PDF instead.</span>`; listRecs(k); }
+function delRec(k,i){ if(!confirm("Delete this saved record?")) return; const recs=store.get("wafi_"+k); recs.splice(i,1); store.set("wafi_"+k,recs); listRecs(k); }
+function exportCsv(k){ const recs=store.get("wafi_"+k), m=$("#"+k+"msg"); if(!recs.length){ m.innerHTML="Nothing saved to export yet."; return; }
+  const cols=[...new Set(recs.flatMap(r=>Object.keys(r)))].filter(c=>c!=="_result"), q=s=>`"${String(s??"").replace(/"/g,'""')}"`;
+  const csv="﻿"+[cols.map(q).join(","),...recs.map(r=>cols.map(c=>q(r[c])).join(","))].join("\r\n");
+  const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"})); a.download=`pump-inspection-annex-${k}-${today()}.csv`; a.click(); }
+
+/* ============ router ============ */
+function show(){ const id=(location.hash||"#home").slice(1), v=V[id]?id:"home", m=$("#main");
+  m.innerHTML=`<section class="view on" data-v="${v}">${V[v]()}</section>`; $("#homeBtn").style.visibility=v==="home"?"hidden":"visible";
+  if(V[v].init) V[v].init(); if(V[v].calc){ m.addEventListener("input",V[v].calc); m.addEventListener("change",V[v].calc); V[v].calc(); }
+  if(v==="annexa") listRecs("a"); if(v==="annexb") listRecs("b"); window.scrollTo(0,0); }
+if (typeof document!=="undefined"){
+  const render=()=>{ const old=$("#main"), fresh=old.cloneNode(false); old.replaceWith(fresh); show(); };
+  window.addEventListener("hashchange",render); render();
+  if("serviceWorker" in navigator && location.protocol==="https:") navigator.serviceWorker.register("sw.js").catch(()=>{});
+}
+</script>
+</body>
+</html>
